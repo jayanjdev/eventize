@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.where(:user => current_user)
   end
 
   # GET /events/1
@@ -19,12 +20,13 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event = Event.find(params[:id])
   end
 
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @event = Event.new(event_params.merge(:user_id => current_user.id))
 
     respond_to do |format|
       if @event.save

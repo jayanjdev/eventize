@@ -1,1 +1,4 @@
 <h3>Home</h3>
+<% if @events %>
+  <%= render :partial => 'events/index' %>
+<% end %>
