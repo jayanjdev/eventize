@@ -82,6 +82,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    engtagger (0.2.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.0)
@@ -268,6 +269,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise
+  engtagger
   factory_girl_rails
   faker
   guard-bundler
