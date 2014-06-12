@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
+<div id='@event.id'>
+  <p>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </p>
+</div>
+  <div id="tags">
+  <% @event.tag_list.each do |tag | %>
+    <span class="tag" 
+      data-delete-url="<%=tag_destroy_event_path(@event.id) %>"
+      data-update-url="<%=tag_update_event_path(@event.id) %>"
+      ><%= tag %> </span>
+  <% end %>
+</div>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
