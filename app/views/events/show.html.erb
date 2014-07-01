@@ -1,18 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <div id='@event.id'>
-  <p>
+  <div class="row-fluid">
     <strong>Description:</strong>
     <%= @event.description %>
-  </p>
+  </div>
+  <div class="row-fluid">
+    <strong>Date:</strong>
+    <%= @event.date %>
+  </div>
+  <% if @event.time %>
+    <div class="row-fluid">
+      <strong>Time:</strong>
+      <span class="span1">
+        <%= @event.time.strftime("%I:%M %p") %>
+      </span>
+    </div>
+  <% end %>
 </div>
   <div id="tags">
+  <strong>Tags:</strong>
   <% @event.tag_list.each do |tag | %>
-    <span class="tag" 
-      data-delete-url="<%=tag_destroy_event_path(@event.id) %>"
-      data-update-url="<%=tag_update_event_path(@event.id) %>"
-      ><%= tag %> </span>
+    <span class="tag"><%= tag %> </span>
   <% end %>
+  <%= link_to 'Add Tag', new_event_tag_path(@event) %>
 </div>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

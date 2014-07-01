@@ -1,0 +1,16 @@
+
+<h2> Added Event Tag </h2>
+
+<div class="row-fluid">
+  <span>
+    <%= @event.description %>
+  </span>
+  <span class='existing_tags'>
+    <%= @event.tags%>
+  </span>
+  <%= form_tag event_tag_path(:event_id => @event.id, :id => nil) do  %>
+    <%= hidden_field_tag :event_id , @event.id %>
+    <strong>New tag: </strong> <%= text_field_tag :tag  %>
+   <%= submit_tag 'Save' %>
+  <%end  %>
+</div>

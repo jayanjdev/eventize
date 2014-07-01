@@ -1,7 +1,6 @@
-<table>
+<table class='table'>
   <thead>
     <tr>
-      <th>User</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
@@ -10,10 +9,14 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.description %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='span1'><%= link_to event.description, event %>
+          <%= link_to  edit_event_path(event), class: 'link_new' do %>
+            <span class="glyphicon glyphicon-edit"> </span>
+          <% end %>
+          <%= link_to event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link_remove' do %>
+            <span class="glyphicon glyphicon-remove"> </span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

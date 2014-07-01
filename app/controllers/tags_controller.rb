@@ -1,7 +1,15 @@
 class TagsController < ApplicationController
-  def destroy
+
+  def new
+    @event = Event.find(params[:event_id])
   end
 
-  def update
+  def create
+    @event = Event.find(params[:event_id])
+    @event.tags << params[:tag]
+    @event.save
+  end
+
+  def destroy
   end
 end

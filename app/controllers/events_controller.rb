@@ -15,7 +15,8 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+   day = (params[:date] && Date.parse(params[:date])) || Date.today
+   @event = Event.new(:date => day)
   end
 
   # GET /events/1/edit
@@ -71,6 +72,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:user_id, :description)
+      params.require(:event).permit(:user_id, :description, :date, :time)
     end
 end
