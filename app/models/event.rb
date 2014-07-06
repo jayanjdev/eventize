@@ -6,7 +6,25 @@ class Event < ActiveRecord::Base
     self.tags = TagsGenerator.new(description).tags.join(',')
   end
 
-  def tag_list
-    tags.split(',')
+  def add_to_custom_tags(new_tag)
+    self.custom_tags = (custom_tags.split(',') << new_tag).join(',')
+    save
+  end
+
+  def delete_to_custom_tags(tag)
+    self.custom_tags = (custom_tags.split(',').reject(new_tag)).join(',')
+    save
+  end
+
+  def tags_list
+    tags.split(',') 
+  end
+
+  def custom_tags_list
+    custom_tags.split(',')
+  end
+
+  def all_tags
+    tags_list + custom_tags_list
   end
 end

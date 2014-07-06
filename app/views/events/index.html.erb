@@ -1,3 +1,3 @@
 <h1>Listing events</h1>
-<%= render :partial => 'events/index' %>
+<%= render :partial => 'events/event_calendar', locals: { day: @day, :events_by_date => @events_by_date } %>
 

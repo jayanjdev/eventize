@@ -1,0 +1,22 @@
+<div class='row-fluid'>
+  <%= link_to ("<<" + I18n.t("date.month_names")[day.prev_month.month]), root_path(:date => day.prev_month.to_s),  class: 'label label-info span1' %>
+  <span class='span5'><%=(I18n.t("date.month_names")[day.month]) %></span>
+  <%= link_to (I18n.t("date.month_names")[day.next_month.month] + ">>"), root_path(:date => day.next_month.to_s),  class: 'label label-info span1' %>
+  <%= link_to new_event_path(:date => day.to_s),  class: 'link_new' do %>
+    <span class="glyphicon glyphicon-pencil"> </span>
+  <% end %>
+
+</div>
+<%= bootstrap_calendar day do |date| %>
+  <%= link_to date.day %>
+  <%= link_to new_event_path(:date => date.to_s),  class: 'link_new' do %>
+    <span class="glyphicon glyphicon-pencil"> </span>
+  <% end %>
+  <ul class='list-group'>
+    <% (events_by_date[date.day] || []).each do |event| %>
+      <%= link_to event_path(event.id) do %>
+       <li class='event list-group-pencil'> <%=  event.description %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
