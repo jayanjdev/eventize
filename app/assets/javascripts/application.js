@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require_tree .
 //= require twitter-bootstrap-calendar
+//= require d3
