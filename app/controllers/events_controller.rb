@@ -16,6 +16,10 @@ class EventsController < ApplicationController
       }
   end
 
+  def top_events
+    @events = Event.where(user: current_user).select(:description).uniq.limit(10)
+  end
+
   # GET /events/1
   # GET /events/1.json
   def show
@@ -23,8 +27,9 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-   day = (params[:date] && Date.parse(params[:date])) || Date.today
-   @event = Event.new(:date => day)
+   new_params = {:date => (params[:date] && Date.parse(params[:date])) || Date.today}
+   new_params.merge!(:description => params[:description]) if params[:description].present?
+   @event = Event.new(new_params)
   end
 
   # GET /events/1/edit
@@ -69,6 +74,13 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def search  
+    events = Event.search(params[:tags], current_user)
+    respond_to do |format|
+      format.json { render :json => events }
     end
   end
 

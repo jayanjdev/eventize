@@ -5,6 +5,9 @@
   <%= link_to new_event_path(:date => day.to_s),  class: 'link_new' do %>
     <span class="glyphicon glyphicon-pencil"> </span>
   <% end %>
+  <%= link_to top_events_path,  class: 'link_new' do %>
+    <span class="glyphicon glyphicon-list-alt"> </span>
+  <% end %>
 
 </div>
 <%= bootstrap_calendar day do |date| %>

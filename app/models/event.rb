@@ -27,4 +27,12 @@ class Event < ActiveRecord::Base
   def all_tags
     tags_list + custom_tags_list
   end
+
+  def self.search(tags, user)
+    return [] if tags.blank?
+    given_tags = tags.split(',') 
+    Event.where(:user => user).select { |a| 
+      given_tags.detect { |tag| a.all_tags.include?(tag) }
+    }
+  end
 end
