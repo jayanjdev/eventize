@@ -34,6 +34,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'debugger'
+  gem 'railroady'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -48,5 +49,4 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
-gem "d3-rails"
+gem 'd3_rails'
