@@ -52,3 +52,5 @@ group :test do
   gem 'selenium-webdriver'
 end
 gem 'd3_rails'
+
+gem 'rails_12factor', group: :production
