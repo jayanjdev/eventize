@@ -14,6 +14,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'pg'
 gem 'thin'
+gem 'active_model_serializers'
 
 gem 'engtagger'
 gem 'twitter-bootstrap-calendar'
