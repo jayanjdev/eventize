@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 ruby '2.1.5'
 gem 'rails', '4.1.1'
 gem 'sass-rails', '~> 4.0.3'
@@ -11,7 +12,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 #gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
-gem 'mysql2'
+gem 'pg'
 gem 'thin'
 
 gem 'engtagger'
