@@ -8,7 +8,7 @@ This is the only documentation.
 
 #### Issues
 
-Similar Projects
+Similar Projects 
 -
 
 Contributing
