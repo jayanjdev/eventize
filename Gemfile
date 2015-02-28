@@ -54,3 +54,4 @@ end
 gem 'd3_rails'
 
 gem 'rails_12factor', group: :production
+gem "codeclimate-test-reporter", group: :test, require: nil
