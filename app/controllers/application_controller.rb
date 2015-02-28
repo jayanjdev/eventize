@@ -8,5 +8,4 @@ class ApplicationController < ActionController::Base
     Time.zone = "Pacific Time (US & Canada)"
   end
 
-
 end
